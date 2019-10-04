@@ -17,6 +17,23 @@ public class PlayerController : MonoBehaviour
     //物理制御クラス
     private Rigidbody2D rb;
 
+    
+    //ジャンプ処理
+    public void Jump()
+    {
+        if (count_jamp < MAX_COUNT_OF_JAMP)
+        {
+            rb.velocity = new Vector2(0, JAMP_POWER);
+            count_jamp++;
+        }
+        is_jamp = false;
+    }
+
+    public void Beam(Vector3 position)
+    {
+        Debug.Log(position);
+    }
+
 
     // コンストラクタ
     void Start()
@@ -30,7 +47,11 @@ public class PlayerController : MonoBehaviour
         if (InputManager.JampInput())
         {
             is_jamp = true;
+        }
 
+        if (InputManager.BeamInput())
+        {
+            Beam(InputManager.BeamPoint());
         }
     }
 
@@ -39,12 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if (is_jamp)
         {
-            if (count_jamp < MAX_COUNT_OF_JAMP)
-            {
-                rb.velocity = new Vector2(0, JAMP_POWER);
-                count_jamp++;
-            }
-            is_jamp = false;
+            Jump();
         }
     }
 

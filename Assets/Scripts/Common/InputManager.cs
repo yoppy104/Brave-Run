@@ -10,4 +10,16 @@ public class InputManager
     {
         return Input.GetKeyDown(KeyCode.Space);
     }
+
+    //ビームの発射操作
+    public static bool BeamInput()
+    {
+        return Input.GetMouseButton(0);
+    }
+
+    //ビームの発射位置の取得
+    public static Vector3 BeamPoint()
+    {
+        return Input.mousePosition;
+    }
 }
