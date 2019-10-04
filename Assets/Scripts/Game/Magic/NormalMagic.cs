@@ -11,5 +11,6 @@ public class NormalMagic : MagicBase
     public override void Move()
     {
         rb.velocity = move_direction * speed;
+        Debug.Log(rb.velocity);
     }
 }

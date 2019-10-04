@@ -14,12 +14,12 @@ public class InputManager
     //ビームの発射操作
     public static bool BeamInput()
     {
-        return Input.GetMouseButton(0);
+        return Input.GetMouseButtonDown(0);
     }
 
     //ビームの発射位置の取得
     public static Vector3 BeamPoint()
     {
-        return Input.mousePosition;
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }

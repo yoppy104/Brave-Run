@@ -134,4 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: 0
   cost: 0
-  speed: 5
+  speed: 10

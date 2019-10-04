@@ -35,7 +35,7 @@ public class MagicBase : MonoBehaviour
 
     public virtual void MoveStart(Vector3 target)
     {
-        move_direction = target - transform.position;
+        move_direction = (target - transform.position).normalized;
 
         this.gameObject.SetActive(true);
     }
@@ -52,7 +52,7 @@ public class MagicBase : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_PLAYER))
+        if (!(collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_PLAYER) || collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA)))
         {
             Hit();
         }
