@@ -2,23 +2,29 @@
 
 public class PlayerController : MonoBehaviour
 {
+    //ジャンプの上方向への移動
     private const float JAMP_POWER = 6f;
 
+    //ジャンプの最大回数
     private const int MAX_COUNT_OF_JAMP = 2;
 
+    //ジャンプ入力があったか
     private bool is_jamp = false;
 
+    //ジャンプ回数
     private int count_jamp = 0;
 
+    //物理制御クラス
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
+
+    // コンストラクタ
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    // Update処理
     void Update()
     {
         if (InputManager.JampInput())
@@ -28,25 +34,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //物理演算の処理
     private void FixedUpdate()
     {
-
-        Debug.Log("jamp");
         if (is_jamp)
         {
-
-            Debug.Log("jamp ok");
             if (count_jamp < MAX_COUNT_OF_JAMP)
             {
                 rb.velocity = new Vector2(0, JAMP_POWER);
                 count_jamp++;
-
-                Debug.Log("jamp complete");
             }
             is_jamp = false;
         }
     }
 
+    //接触判定
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
