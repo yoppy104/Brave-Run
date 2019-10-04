@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     //攻撃力
     [SerializeField] private int attack;
 
+    [SerializeField] private Object magic_prefab;
+
+    private GameObject magic_object;
+
+    private MagicBase magic_script;
 
     //現在体力
     private int hp;
@@ -33,6 +38,11 @@ public class Player : MonoBehaviour
     {
         get { return this.hp; }
         set { this.hp = value; }
+    }
+
+    public MagicBase MagicScript
+    {
+        get { return this.magic_script; }
     }
 
     public int Mp
@@ -79,11 +89,8 @@ public class Player : MonoBehaviour
     {
         hp = hp_max;
         mp = mp_max;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        magic_object = Instantiate(magic_prefab) as GameObject;
+        magic_script = magic_object.GetComponent<MagicBase>();
     }
 }

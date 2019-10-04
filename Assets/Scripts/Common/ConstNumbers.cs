@@ -13,5 +13,8 @@ public class ConstNumbers
     //Tagの名前
     public const string TAG_NAME_STAGE = "Stage";
     public const string TAG_NAME_PLAYER = "Player";
+    public const string TAG_NAME_MAGIC = "Magic";
+    public const string TAG_NAME_ENEMY = "Enemy";
+    public const string TAG_NAME_GAME_AREA = "GameArea";
 
 }
