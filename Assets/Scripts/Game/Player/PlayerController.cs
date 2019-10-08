@@ -36,9 +36,12 @@ public class PlayerController : MonoBehaviour
 
         if (!script.gameObject.activeSelf)
         {
-            script.gameObject.transform.position = transform.position - transform.right*0.5f - transform.forward*0.5f;
+            if (transform.position.x > position.x)
+            {
+                script.gameObject.transform.position = transform.position - transform.right * 0.5f - transform.forward * 0.5f;
 
-            script.MoveStart(position);
+                script.MoveStart(position);
+            }
         }
     }
 

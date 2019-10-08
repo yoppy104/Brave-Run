@@ -7,10 +7,4 @@ public class NormalMagic : MagicBase
     {
         this.gameObject.SetActive(false);
     }
-
-    public override void Move()
-    {
-        rb.velocity = move_direction * speed;
-        Debug.Log(rb.velocity);
-    }
 }

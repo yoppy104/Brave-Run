@@ -30,7 +30,7 @@ public class MagicBase : MonoBehaviour
 
     public virtual void Move()
     {
-
+        rb.velocity = move_direction * speed;
     }
 
     public virtual void MoveStart(Vector3 target)
