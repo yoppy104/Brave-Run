@@ -101,4 +101,12 @@ public class Player : MonoBehaviour
             Debug.Log("Game Over...");
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
+        {
+            Debug.Log("Game Clear!!!");
+        }
+    }
 }
