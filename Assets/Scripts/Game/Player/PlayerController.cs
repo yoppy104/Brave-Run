@@ -3,7 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     //ジャンプの上方向への移動
-    private const float JAMP_POWER = 6f;
+    private const float JAMP_POWER = 500f;
 
     //ジャンプの最大回数
     private const int MAX_COUNT_OF_JAMP = 2;
@@ -24,7 +24,14 @@ public class PlayerController : MonoBehaviour
     {
         if (count_jamp < MAX_COUNT_OF_JAMP)
         {
-            rb.velocity = new Vector2(0, JAMP_POWER);
+            if (count_jamp == 0)
+            {
+                rb.AddForce(new Vector3(0f, JAMP_POWER, 0f), ForceMode2D.Force);
+            }
+            else
+            {
+                rb.velocity = new Vector3(0f, JAMP_POWER / 50f, 0f);
+            }
             count_jamp++;
         }
         is_jamp = false;
@@ -75,6 +82,8 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        rb.AddForce(Vector3.down * ConstNumbers.GRAVITY_POWER, ForceMode2D.Force);
     }
 
     //接触判定

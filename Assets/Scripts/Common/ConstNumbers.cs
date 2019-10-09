@@ -9,6 +9,8 @@ public class ConstNumbers
      public const (型名) (変数名) = (数値);
      */
 
+    //定数値 
+    public const int GRAVITY_POWER = 20;
 
     //Tagの名前
     public const string TAG_NAME_STAGE = "Stage";
