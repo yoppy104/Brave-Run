@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7752600144787207525}
   - component: {fileID: 3200033193278754325}
   - component: {fileID: 3200033193278754324}
-  - component: {fileID: 3200033193278754326}
+  - component: {fileID: 6687915864082548372}
   m_Layer: 10
   m_Name: MagicBullet
   m_TagString: Magic
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &3200033193278754326
+--- !u!114 &6687915864082548372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

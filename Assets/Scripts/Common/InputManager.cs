@@ -20,6 +20,8 @@ public class InputManager
     //ビームの発射位置の取得
     public static Vector3 BeamPoint()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        return pos;
     }
 }

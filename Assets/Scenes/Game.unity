@@ -120,41 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &101352648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5729560581379935862, guid: a745a8b8562e16a41b75428682228372,
-    type: 3}
-  m_PrefabInstance: {fileID: 5729560581345757886}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &101352653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101352648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6dcc189737f30b4d902d50436a6adf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp_max: 10
-  mp_max: 10
-  attack: 3
-  magic_prefab: {fileID: 8299183381372247194, guid: bf8b8c3ebd3d9c043b24d15a3014391f,
-    type: 3}
---- !u!114 &101352654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101352648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a945ed515e49d4b98a68c659eeb9a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5913,16 +5878,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5729560581379935862, guid: a745a8b8562e16a41b75428682228372,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729560581379935862, guid: a745a8b8562e16a41b75428682228372,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5729560581379935858, guid: a745a8b8562e16a41b75428682228372,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5978,5 +5933,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 101352653, guid: a745a8b8562e16a41b75428682228372, type: 3}
+      propertyPath: magic_prefab
+      value: 
+      objectReference: {fileID: 8045957345582416695, guid: 8ef5cd117336b95439d901fda38feb43,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a745a8b8562e16a41b75428682228372, type: 3}

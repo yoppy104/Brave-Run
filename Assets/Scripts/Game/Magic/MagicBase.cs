@@ -23,6 +23,11 @@ public class MagicBase : MonoBehaviour
         get { return this.cost; }
     }
 
+    public int Speed
+    {
+        set { this.speed = value; }
+    }
+
     public virtual void Hit()
     {
 
@@ -35,7 +40,9 @@ public class MagicBase : MonoBehaviour
 
     public virtual void MoveStart(Vector3 target)
     {
-        move_direction = (target - transform.position).normalized;
+        move_direction = target - transform.position;
+        move_direction.z = 0;
+        move_direction = move_direction.normalized;
 
         this.gameObject.SetActive(true);
     }
