@@ -93,4 +93,12 @@ public class Player : MonoBehaviour
         magic_object = Instantiate(magic_prefab) as GameObject;
         magic_script = magic_object.GetComponent<MagicBase>();
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
+        {
+            Debug.Log("Game Over...");
+        }
+    }
 }
