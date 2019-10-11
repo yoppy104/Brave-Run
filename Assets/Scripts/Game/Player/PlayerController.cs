@@ -53,6 +53,22 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void CheckTouchedGround()
+    {
+        Vector3 check_center = transform.position - new Vector3(0f, 1f, 0f);
+        Vector3 check_radius = new Vector3(0.5f, 0.1f, 0f);
+        Collider[] cols = Physics.OverlapBox(check_center, check_radius);
+
+        foreach (Collider col in cols)
+        {
+            if (col.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
+            {
+                count_jamp = 0;
+            }
+        }
+    }
+
+
     // コンストラクタ
     void Start()
     {
@@ -85,6 +101,7 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(Vector3.down * ConstNumbers.GRAVITY_POWER, ForceMode2D.Force);
     }
+
 
     //接触判定
     public void OnCollisionEnter2D(Collision2D collision)
