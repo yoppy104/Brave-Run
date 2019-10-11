@@ -11,10 +11,13 @@ public class Player : MonoBehaviour
     //攻撃力
     [SerializeField] private int attack;
 
+    //魔術通常弾のプレハブ
     [SerializeField] private Object magic_prefab;
 
+    //魔術オブジェクト
     private GameObject magic_object;
 
+    //魔術スクリプト
     private MagicBase magic_script;
 
     //現在体力
@@ -59,29 +62,13 @@ public class Player : MonoBehaviour
     //範囲を超えないように体力を増減させる。
     public void PlusHp(int delta)
     {
-        this.hp += delta;
-        if (this.hp > this.hp_max)
-        {
-            this.hp = this.hp_max;
-        }
-        else if (this.hp < 0)
-        {
-            this.hp = 0;
-        }
+        this.hp = Mathf.Clamp(this.hp + delta, 0, hp_max);
     }
 
     //範囲を超えないようにMpを増減させる
     public void PlusMp(int delta)
     {
-        this.mp += delta;
-        if (this.mp > this.mp_max)
-        {
-            this.mp = this.mp_max;
-        }
-        else if (this.mp < 0)
-        {
-            this.mp = 0;
-        }
+        this.mp = Mathf.Clamp(this.mp + delta, 0, mp_max);
     }
 
     // Start is called before the first frame update
