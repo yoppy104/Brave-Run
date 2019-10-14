@@ -20,4 +20,10 @@ public class ConstNumbers
     public const string TAG_NAME_GAME_AREA = "GameArea";
     public const string TAG_NAME_GOAL_AREA = "GoalArea";
 
+    //Sceneの名前
+    public const string SCENE_NAME_TITLE = "Title";
+    public const string SCENE_NAME_GAME = "Game";
+    public const string SCENE_NAME_CLEAR = "Clear";
+    public const string SCENE_NAME_GAMEOVER = "GameOver";
+
 }

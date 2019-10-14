@@ -96,18 +96,4 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(Vector3.down * ConstNumbers.GRAVITY_POWER, ForceMode2D.Force);
     }
-
-    /*
-    //接触判定
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
-        {
-            if (count_jamp != 0)
-            {
-                count_jamp = 0;
-            }
-        }
-    }
-    */
 }
