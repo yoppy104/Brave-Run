@@ -8,10 +8,11 @@ public class ItemBase : MonoBehaviour
     // アイテムの種類
     public enum ItemType
     {
-        HEAL,   // HP回復 
-        CHARGE, // MP回復
-        BULLET, // 特殊弾変更
-        ENHANCE // 攻撃力上昇
+        HEAL,       // HP回復 
+        CHARGE,     // MP回復
+        SCATTERED,  // 拡散弾変更
+        PENETRATION,// 貫通弾変更
+        ENHANCE     // 攻撃力上昇
     }
 
     // アイテムの種類

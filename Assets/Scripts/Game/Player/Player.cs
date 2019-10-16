@@ -116,10 +116,13 @@ public class Player : MonoBehaviour
 
         GameObject obj = collision.gameObject;
 
+        // クリア範囲に入ったらゲームクリア
         if (obj.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
         {
             Debug.Log("Game Clear!!!");
         }
+
+        // アイテムと接触したら効果処理を呼び出す。
         else if (obj.CompareTag(ConstNumbers.TAG_NAME_ITEM))
         {
             ItemBase script = obj.GetComponent<ItemBase>();
