@@ -375,6 +375,7 @@ MonoBehaviour:
   - {fileID: 1429340469613519575, guid: c52f3ced7c0a181438c39cda2bad37a1, type: 3}
   - {fileID: 4444074256519674114, guid: f4cf758b92f29e5429fa607e3156fb8a, type: 3}
   - {fileID: 117929973390769982, guid: 918a670666ff56a4e955b6e348b78fa4, type: 3}
+  time_recreate_item: 8
 --- !u!1001 &5729560581345757886
 PrefabInstance:
   m_ObjectHideFlags: 0
