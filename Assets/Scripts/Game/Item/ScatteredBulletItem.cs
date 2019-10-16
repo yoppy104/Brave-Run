@@ -10,7 +10,7 @@ public class ScatteredBulletItem : ItemBase
 
     public override void UseEffect(Player player)
     {
-
+        player.SetSpecialMagic(bullet);
     }
 
     // Start is called before the first frame update

@@ -68,7 +68,7 @@ public class ScatteredMagic : MagicBase
         base.Move();
 
         // 射撃入力がされたら、散弾処理を呼び出す
-        if (InputManager.BeamInput())
+        if (InputManager.SpecialBeamInput())
         {
             if (!is_scattered)
             {

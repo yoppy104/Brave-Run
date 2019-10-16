@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06929725ef9e3e4b955fc32ffbdaa8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
+  attack: 5
   cost: 0
-  speed: 0
-  use_limit: 0
+  speed: 12
+  use_limit: 5

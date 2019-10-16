@@ -98,6 +98,11 @@ public class Player : MonoBehaviour
         magic_script = magic_object.GetComponent<MagicBase>();
     }
 
+    private void Update()
+    {
+
+    }
+
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
