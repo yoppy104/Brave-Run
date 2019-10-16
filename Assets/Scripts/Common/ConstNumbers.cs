@@ -19,6 +19,7 @@ public class ConstNumbers
     public const string TAG_NAME_ENEMY = "Enemy";
     public const string TAG_NAME_GAME_AREA = "GameArea";
     public const string TAG_NAME_GOAL_AREA = "GoalArea";
+    public const string TAG_NAME_ITEM = "Item";
 
     //Sceneの名前
     public const string SCENE_NAME_TITLE = "Title";

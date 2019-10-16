@@ -17,8 +17,12 @@ public class Player : MonoBehaviour
     //魔術オブジェクト
     private GameObject magic_object;
 
+    private GameObject special_magic_object;
+
     //魔術スクリプト
     private MagicBase magic_script;
+
+    private MagicBase special_magic_script;
 
     //現在体力
     private int hp;
@@ -48,6 +52,11 @@ public class Player : MonoBehaviour
         get { return this.magic_script; }
     }
 
+    public MagicBase SpecialMagicScript
+    {
+        get { return this.special_magic_script; }
+    }
+
     public int Mp
     {
         get { return this.mp; }
@@ -71,6 +80,14 @@ public class Player : MonoBehaviour
         this.mp = Mathf.Clamp(this.mp + delta, 0, mp_max);
     }
 
+    public void SetSpecialMagic(GameObject bullet)
+    {
+        this.special_magic_object = bullet;
+        this.special_magic_script = bullet.GetComponent<MagicBase>();
+
+        this.special_magic_script.UseNum = 0;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,9 +108,17 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
+
+        GameObject obj = collision.gameObject;
+
+        if (obj.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
         {
             Debug.Log("Game Clear!!!");
+        }
+        else if (obj.CompareTag(ConstNumbers.TAG_NAME_ITEM))
+        {
+            ItemBase script = obj.GetComponent<ItemBase>();
+            script.UseEffect(this);
         }
     }
 }

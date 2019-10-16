@@ -8,6 +8,7 @@ TagManager:
   - Magic
   - GameArea
   - GoalArea
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Magic
   - Stage
   - System
-  - 
+  - Item
   - 
   - 
   - 

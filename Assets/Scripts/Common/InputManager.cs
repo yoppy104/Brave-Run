@@ -11,13 +11,19 @@ public class InputManager
         return Input.GetKeyDown(KeyCode.Space);
     }
 
-    //ビームの発射操作
+    //通常弾の発射操作
     public static bool BeamInput()
     {
         return Input.GetMouseButtonDown(0);
     }
 
-    //ビームの発射位置の取得
+    //特殊弾の発射操作
+    public static bool SpecialBeamInput()
+    {
+        return Input.GetMouseButtonDown(1);
+    }
+
+    //通常弾の発射位置の取得
     public static Vector3 BeamPoint()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

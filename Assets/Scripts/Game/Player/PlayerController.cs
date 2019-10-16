@@ -41,10 +41,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SpecialBeam(Vector3 position)
+    {
+        MagicBase script = player.SpecialMagicScript;
+        if (script.IsUseable() && !script.gameObject.activeSelf)
+        {
+            if (transform.position.x > position.x)
+            {
+                script.gameObject.transform.position = transform.position - transform.right * 0.5f - transform.forward * 0.5f;
+
+                script.MoveStart(position);
+            }
+        }
+    }
 
     private void CheckTouchedGround()
     {
-        Vector3 check_center = transform.position - new Vector3(0f, 0.8f, 0f);
+        Vector3 check_center = transform.position - new Vector3(0f, 0.3f, 0f);
         Vector3 check_radius = new Vector3(0.1f, 0.5f, 100f);
         Collider2D col = Physics2D.OverlapBox(check_center, check_radius, 0);
 
@@ -73,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
         if (InputManager.JampInput())
         {
-            if (count_jamp <= MAX_COUNT_OF_JAMP)
+            if (count_jamp < MAX_COUNT_OF_JAMP)
             {
                 is_jamp = true;
                 count_jamp++;
@@ -83,6 +96,10 @@ public class PlayerController : MonoBehaviour
         if (InputManager.BeamInput())
         {
             Beam(InputManager.BeamPoint());
+        }
+        if (InputManager.SpecialBeamInput())
+        {
+            SpecialBeam(InputManager.BeamPoint());
         }
     }
 

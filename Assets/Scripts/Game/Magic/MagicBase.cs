@@ -9,12 +9,17 @@ public class MagicBase : MonoBehaviour
 
     [SerializeField] protected int speed;
 
+    [SerializeField] protected int use_limit;
+
+    private int use_num;
+
     protected Vector3 move_direction = Vector3.zero;
 
     protected Rigidbody2D rb;
 
     public int Attack
     {
+        set { this.attack = value; }
         get { return this.attack;  }
     }
 
@@ -26,6 +31,18 @@ public class MagicBase : MonoBehaviour
     public int Speed
     {
         set { this.speed = value; }
+    }
+
+    public int UseNum
+    {
+        get { return this.use_num; }
+        set { this.use_num = value; }
+    }
+
+
+    public bool IsUseable()
+    {
+        return use_num < use_limit;
     }
 
     public virtual void Hit()

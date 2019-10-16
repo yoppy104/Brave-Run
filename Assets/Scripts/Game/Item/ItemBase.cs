@@ -16,6 +16,17 @@ public class ItemBase : MonoBehaviour
 
     // アイテムの種類
     [SerializeField] ItemType type;
+    
+
+    public ItemType Type
+    {
+        get { return this.type; }
+    }
+
+    public virtual void UseEffect(Player player)
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +40,17 @@ public class ItemBase : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag(ConstNumbers.TAG_NAME_PLAYER))
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_PLAYER))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
         {
             this.gameObject.SetActive(false);
         }
