@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Text;
 
 public class Player : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class Player : MonoBehaviour
     //UIを管理するクラス
     private PlayerUI ui;
 
+    //現在のスコア
+    private int score;
+
+    //残りの走行距離
+    private int distance;
 
     public int HpMax
     {
@@ -71,6 +77,16 @@ public class Player : MonoBehaviour
         get { return this.attack; }
     }
 
+    public int Score
+    {
+        get { return this.score; }
+    }
+
+    public int Distance
+    {
+        get { return this.distance; }
+    }
+
     public void MessageUseSpecialBullet()
     {
         ui.SetSpecailNum(special_magic_script.UseLimit - special_magic_script.UseNum);
@@ -88,6 +104,18 @@ public class Player : MonoBehaviour
     {
         this.mp = Mathf.Clamp(this.mp + delta, 0, mp_max);
         ui.SetMP(mp);
+    }
+
+    public void plusScore(int value)
+    {
+        this.score += value;
+        ui.SetScore(score);
+    }
+
+    public void PlusDistance(int value)
+    {
+        this.distance += value;
+        ui.SetDistance(distance);
     }
 
     public void SetSpecialMagic(GameObject bullet)
@@ -121,11 +149,20 @@ public class Player : MonoBehaviour
         magic_script = magic_object.GetComponent<MagicBase>();
 
         ui = GetComponent<PlayerUI>();
+
+        //scoreとUIの初期化
+        score = 0;
+
+        ui.SetScore(score);
+
+        //distanceとUIの初期化
+        distance = 0;
+
+        ui.SetDistance(distance);
     }
 
     private void Update()
     {
-
     }
 
     public void OnTriggerExit2D(Collider2D collision)

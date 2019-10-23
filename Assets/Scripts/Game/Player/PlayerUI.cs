@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Text;
 
 /// <summary>
 /// プレイヤーのUIを管理するクラス
@@ -21,6 +20,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Text specail_bullet_num_text;  //特殊弾の残弾表示
     [SerializeField] private Image special_bullet_image;    //所持特殊弾の表示
     [SerializeField] private Sprite[] special_bullet_icons; //特殊弾のアイコンをそろえた配列
+
+    private StringBuilder distance_text_buffer;
+
+    private StringBuilder score_text_buffer;
+
+    private const string FILL_TEXT = "00000";
+    private const int NUM_FILL = 5;
 
     //MagicTypeに対応した配列のインデックスを返す。
     private int CastMagicTypeToIndex(MagicBase.MagicType type)
@@ -67,12 +73,29 @@ public class PlayerUI : MonoBehaviour
     //スコアを設定する。
     public void SetScore(int value)
     {
-        this.score_text.text = value.ToString();
+        int index = (score_text_buffer.ToString()).Length - NUM_FILL;
+        string replace_text = (score_text_buffer.ToString()).Substring(0, index);
+        score_text_buffer = score_text_buffer.Replace(replace_text, value.ToString(FILL_TEXT));
+        this.score_text.text = score_text_buffer.ToString();
     }
 
     //残距離を表示する。
     public void SetDistance(int value)
     {
-        this.running_distance_text.text = value.ToString();
+        int index = (distance_text_buffer.ToString()).Length - 1;
+        string replace_text = distance_text_buffer.ToString().Substring(0, index);
+        distance_text_buffer = distance_text_buffer.Replace(replace_text, value.ToString());
+        this.running_distance_text.text = distance_text_buffer.ToString();
+    }
+
+    void Awake()
+    {
+        score_text_buffer = new StringBuilder();
+        score_text_buffer.Append(FILL_TEXT);
+        score_text_buffer.Append("point");
+
+        distance_text_buffer = new StringBuilder();
+        distance_text_buffer.Append("100");
+        distance_text_buffer.Append("m");
     }
 }
