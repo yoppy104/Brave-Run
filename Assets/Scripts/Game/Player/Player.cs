@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
     //現在MP
     private int mp;
 
+    //UIを管理するクラス
+    private PlayerUI ui;
+
 
     public int HpMax
     {
@@ -68,16 +71,23 @@ public class Player : MonoBehaviour
         get { return this.attack; }
     }
 
+    public void MessageUseSpecialBullet()
+    {
+        ui.SetSpecailNum(special_magic_script.UseLimit - special_magic_script.UseNum);
+    }
+
     //範囲を超えないように体力を増減させる。
     public void PlusHp(int delta)
     {
         this.hp = Mathf.Clamp(this.hp + delta, 0, hp_max);
+        ui.SetHP(hp);
     }
 
     //範囲を超えないようにMpを増減させる
     public void PlusMp(int delta)
     {
         this.mp = Mathf.Clamp(this.mp + delta, 0, mp_max);
+        ui.SetMP(mp);
     }
 
     public void SetSpecialMagic(GameObject bullet)
@@ -86,6 +96,8 @@ public class Player : MonoBehaviour
         this.special_magic_script = bullet.GetComponent<MagicBase>();
 
         this.special_magic_script.UseNum = 0;
+
+        ui.SetSpecailBulletInfo(special_magic_script.Type, special_magic_script.UseLimit);
     }
 
     // Start is called before the first frame update
@@ -96,6 +108,8 @@ public class Player : MonoBehaviour
 
         magic_object = Instantiate(magic_prefab) as GameObject;
         magic_script = magic_object.GetComponent<MagicBase>();
+
+        ui = GetComponent<PlayerUI>();
     }
 
     private void Update()

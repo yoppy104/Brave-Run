@@ -11,6 +11,16 @@ public class MagicBase : MonoBehaviour
 
     [SerializeField] protected int use_limit;
 
+    public enum MagicType
+    {
+        NORMAL,
+        PENETRATION,
+        SCATTER
+    }
+
+    // 魔法弾の種類
+    [SerializeField] private MagicType type;
+
     private int use_num;
 
     protected Vector3 move_direction = Vector3.zero;
@@ -37,6 +47,16 @@ public class MagicBase : MonoBehaviour
     {
         get { return this.use_num; }
         set { this.use_num = value; }
+    }
+
+    public int UseLimit
+    {
+        get { return this.use_limit; }
+    }
+
+    public MagicType Type
+    {
+        get { return this.type; }
     }
 
 

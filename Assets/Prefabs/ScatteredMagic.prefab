@@ -136,5 +136,6 @@ MonoBehaviour:
   cost: 0
   speed: 10
   use_limit: 5
+  type: 2
   normal_magic_prefab: {fileID: 8299183381372247194, guid: bf8b8c3ebd3d9c043b24d15a3014391f,
     type: 3}

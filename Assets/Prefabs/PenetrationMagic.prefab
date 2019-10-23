@@ -136,3 +136,4 @@ MonoBehaviour:
   cost: 0
   speed: 12
   use_limit: 5
+  type: 1
