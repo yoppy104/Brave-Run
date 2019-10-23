@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
                     script.UseNum++;
 
                     player.MessageUseSpecialBullet();
+
+                    player.CheckEraceSpecialBullet();
                 }
             }
         }

@@ -100,6 +100,17 @@ public class Player : MonoBehaviour
         ui.SetSpecailBulletInfo(special_magic_script.Type, special_magic_script.UseLimit);
     }
 
+    public void CheckEraceSpecialBullet()
+    {
+        if (!this.special_magic_script.IsUseable())
+        {
+            this.special_magic_script = null;
+            this.special_magic_object = null;
+
+            ui.SetSpecailBulletInfo(MagicBase.MagicType.NORMAL, 0);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

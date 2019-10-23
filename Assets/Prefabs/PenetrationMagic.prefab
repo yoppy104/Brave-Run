@@ -135,5 +135,5 @@ MonoBehaviour:
   attack: 5
   cost: 0
   speed: 12
-  use_limit: 5
+  use_limit: 1
   type: 1
