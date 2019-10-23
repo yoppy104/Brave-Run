@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// 散弾
@@ -7,16 +9,52 @@ public class ScatteredMagic : MagicBase
 {
     [SerializeField] private Object normal_magic_prefab;
 
-    private static GameObject[] magics;
+    private static List<GameObject> normal_magic_instances;
 
     private const int num_magic_bullet = 6;
 
     private bool is_scattered = false;
 
+
+    private void SetInstance(GameObject[] result)
+    {
+        int index = 0;
+
+        // 規定個数になるまで、生成済みの配列から非アクティブなオブジェクトを取り出す。
+        foreach (GameObject obj in normal_magic_instances)
+        {
+            if (!obj.activeSelf)
+            {
+                result[index] = obj;
+                index++;
+
+                if(index == num_magic_bullet)
+                {
+                    break;
+                }
+            }
+        }
+
+        // 不足分を生成して、補う
+        if (index < num_magic_bullet)
+        {
+            for (int i = index; i < num_magic_bullet; i++)
+            {
+                GameObject new_bullet = Instantiate(normal_magic_prefab) as GameObject;
+                result[i] = new_bullet;
+                normal_magic_instances.Add(new_bullet);
+            }
+        }
+    }
+
     //散弾処理
     private void CreateAroundMagic()
     {
         is_scattered = true;
+
+        GameObject[] magics = new GameObject[num_magic_bullet];
+
+        SetInstance(magics);
 
         Vector3 front = move_direction;
         Vector3 right = new Vector3(front.y, -1 * front.x, 0f);
@@ -44,6 +82,8 @@ public class ScatteredMagic : MagicBase
             magics[i].GetComponent<NormalMagic>().Speed = this.speed;
             magics[i].SetActive(true);
         }
+
+        StartCoroutine(AfterScattered());
     }
 
     public override void MoveStart(Vector3 target)
@@ -52,15 +92,7 @@ public class ScatteredMagic : MagicBase
 
         is_scattered = false;
 
-        //弾丸オブジェクトを生成する
-        if (magics == null)
-        {
-            magics = new GameObject[num_magic_bullet];
-            for (int i = 0; i < num_magic_bullet; i++)
-            {
-                magics[i] = Instantiate(normal_magic_prefab) as GameObject;
-            }
-        }
+        normal_magic_instances = new List<GameObject>();
     }
 
     public override void Move()
@@ -83,6 +115,15 @@ public class ScatteredMagic : MagicBase
         {
             CreateAroundMagic();
         }
+        gameObject.SetActive(false);
+    }
+
+    public IEnumerator AfterScattered()
+    {
+        rb.velocity = Vector3.zero;
+
+        yield return null;
+
         gameObject.SetActive(false);
     }
 }

@@ -163,6 +163,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
     }
 
     public void OnTriggerExit2D(Collider2D collision)
