@@ -27,4 +27,9 @@ public class ConstNumbers
     public const string SCENE_NAME_CLEAR = "Clear";
     public const string SCENE_NAME_GAMEOVER = "GameOver";
 
+    //Animationトリガーの名前
+    public const string ANIMATION_FLAG_NAME_JUMP = "isJump";
+    public const string ANIMATION_FLAG_NAME_ATTACK = "isAttack";
+    public const string ANIMATION_FLAG_NAME_DAMAGE = "isDamage";
+
 }
