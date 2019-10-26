@@ -18,12 +18,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     private Player player;
+
+    private PlayerAnimator p_anim;
     
     //ジャンプ処理
     public void Jump()
     {
         rb.velocity = new Vector2(0f, JAMP_POWER / 50f);
         is_jamp = false;
+        p_anim.SetJumpAnimation(true);
     }
 
     public void Beam(Vector3 position)
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
             if (col.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
             {
                 count_jamp = 0;
+                p_anim.SetJumpAnimation(false);
             }
         }
     }
@@ -86,6 +90,8 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Player>();
 
         rb = GetComponent<Rigidbody2D>();
+
+        p_anim = gameObject.GetComponent<PlayerAnimator>();
     }
 
     // Update処理

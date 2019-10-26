@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
     //残りの走行距離
     private int distance;
 
+    private PlayerAnimator p_anim;
+
     public int HpMax
     {
         get { return this.hp_max; }
@@ -90,6 +92,13 @@ public class Player : MonoBehaviour
     public void MessageUseSpecialBullet()
     {
         ui.SetSpecailNum(special_magic_script.UseLimit - special_magic_script.UseNum);
+    }
+
+    public void Damage(int value)
+    {
+        this.hp = Mathf.Clamp(this.hp - value, 0, hp_max);
+        ui.SetHP(hp);
+        p_anim.SetDamageAnimation();
     }
 
     //範囲を超えないように体力を増減させる。
@@ -159,6 +168,8 @@ public class Player : MonoBehaviour
         distance = 0;
 
         ui.SetDistance(distance);
+
+        p_anim = gameObject.GetComponent<PlayerAnimator>();
     }
 
     private void Update()

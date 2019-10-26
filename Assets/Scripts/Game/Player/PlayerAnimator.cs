@@ -17,9 +17,9 @@ public class PlayerAnimator : MonoBehaviour
     }
 
     //ダメージアニメーションを制御
-    public void SetDamageAnimation(bool trigger)
+    public void SetDamageAnimation()
     {
-        anim.SetBool(ConstNumbers.ANIMATION_FLAG_NAME_DAMAGE, trigger);
+        anim.SetTrigger(ConstNumbers.ANIMATION_FLAG_NAME_DAMAGE);
     }
 
 
