@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     //魔術通常弾のプレハブ
     [SerializeField] private Object magic_prefab;
 
+    [SerializeField] private GameObject arm;
+
     //魔術オブジェクト
     private GameObject magic_object;
 
@@ -172,9 +174,20 @@ public class Player : MonoBehaviour
         p_anim = gameObject.GetComponent<PlayerAnimator>();
     }
 
+    // 腕を動かす処理
+    private void MoveArm()
+    {
+        Vector3 from = arm.transform.position + arm.transform.forward;
+        Vector3 to = InputManager.BeamPoint() - arm.transform.position;
+
+        float angle = Vector3.SignedAngle(from, to, Vector3.forward);
+
+        arm.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
     private void Update()
     {
-
+        MoveArm();
     }
 
     public void OnTriggerExit2D(Collider2D collision)
