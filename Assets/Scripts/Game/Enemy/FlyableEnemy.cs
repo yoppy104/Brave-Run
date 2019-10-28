@@ -29,25 +29,40 @@ public class FlyableEnemy : Enemy
                 Move(1);
                 break;
             case 2:
-                Debug.Log("甲でき");
                 Move(2);
                 ChangeEnemyMode(3);
                 Resetframe();
                 break;
             case 3:
-                if(Getattackframe() == Getmodeframe())
-                {
-                    ChangeEnemyMode(1);
-                }
                 if (Getattackframe() / 3 < Getmodeframe())
                 {
                     E_anim.SetBool("isAttack", false);
-                    Move(4);
+                    ChangeEnemyMode(4);
+                }
+                break;
+            case 4:
+                Move(4);
+                if (Getattackframe() == Getmodeframe())
+                {
+                    ChangeEnemyMode(1);
                 }
                 break;
 
         }
 
+        if(Mathf.Sqrt(dx * dx + dy * dy) < 1.3)
+        {
+            AddTriggerframe();
+        }else
+        {
+            ResetATriggerframe();
+        }
+
+        if (GetTriggerframe() == 1 && GetEnemymode() == 3)
+        {
+            Debug.Log("ゆうしゃにこうげきしたよ by flyableenemy");
+            Attack();
+        }
     }
 
     public void ChangeEnemyMode(int mode)
@@ -61,14 +76,6 @@ public class FlyableEnemy : Enemy
             case 2:
                 E_anim.SetBool("isAttack", true);
                 break;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Attack();
         }
     }
 

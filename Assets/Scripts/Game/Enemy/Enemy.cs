@@ -16,7 +16,24 @@ public class Enemy : MonoBehaviour
 
     private int modeframe = 0;
 
-    public int enemymode; //0:待機(直進)　1:playerに向かってく　2:攻撃　3:攻撃クールタイム
+    public int enemymode; //0:待機(直進)　1:playerに向かってく　2:攻撃　3:攻撃中 4:攻撃クールタイム
+
+    private int Triggerframe;
+
+    public void AddTriggerframe()
+    {
+        Triggerframe++;
+    }
+
+    public void ResetATriggerframe()
+    {
+        Triggerframe = 0;
+    }
+
+    public int GetTriggerframe()
+    {
+        return Triggerframe;
+    }
 
     public int HpMax
     {
