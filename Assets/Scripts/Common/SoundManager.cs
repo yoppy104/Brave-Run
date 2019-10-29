@@ -27,9 +27,22 @@ public class SoundManager : MonoBehaviour
 
     private Dictionary<BGMType, AudioSource> bgms;
 
+    private AudioSource now_play;
+
     public SoundManager Instantiate
     {
         get { return instance; }
+    }
+
+    // BGMの再生
+    public void StartBGM(BGMType type)
+    {
+        if (now_play != null)
+        {
+            now_play.Stop();
+        }
+        bgms[type].Play();
+        now_play = bgms[type];
     }
 
     // Start is called before the first frame update
@@ -43,6 +56,8 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        DontDestroyOnLoad(this);
 
         bgms = new Dictionary<BGMType, AudioSource>();
         bgms[BGMType.CLEAR] = clear;
