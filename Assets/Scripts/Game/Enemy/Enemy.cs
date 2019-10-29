@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
     private int modeframe = 0;
 
-    public int enemymode; //0:待機(直進)　1:playerに向かってく　2:攻撃　3:攻撃中 4:攻撃クールタイム
+    protected int enemymode; //0:待機(直進)　1:playerに向かってく　2:攻撃　3:攻撃中 4:攻撃クールタイム
 
     private int Triggerframe;
 
@@ -47,14 +47,14 @@ public class Enemy : MonoBehaviour
         get { return this.attack; }
     }
 
-    public Animator E_anim;
+    protected Animator E_anim;
 
-    public GameObject player;
-    public Rigidbody2D E_rigidbody;
-    public Player p;
-    public Transform P_transform;
+    protected GameObject player;
+    protected Rigidbody2D E_rigidbody;
+    protected Player p;
+    protected Transform P_transform;
 
-    public Transform E_transform;
+    protected Transform E_transform;
     // Start is called before the first frame update
     public void Start()
     {
@@ -107,9 +107,10 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int damage)
     {
+        Debug.Log("だめーじをうけたよ by enemy");
         Hp -= damage;
         E_anim.SetTrigger("isDamage");
-        if (Hp < 0)
+        if (Hp <= 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -146,5 +147,14 @@ public class Enemy : MonoBehaviour
     public int Getattackframe()
     {
         return attackcooltime * 60;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Magic")
+        {
+            int Magic_attack=collision.gameObject.GetComponent<MagicBase>().Attack;
+            Damage(Magic_attack);
+        }
     }
 }
