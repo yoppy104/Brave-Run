@@ -151,6 +151,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("test");
         if (collision.gameObject.tag == "Magic")
         {
             int Magic_attack=collision.gameObject.GetComponent<MagicBase>().Attack;
