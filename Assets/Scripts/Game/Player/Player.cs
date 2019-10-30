@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Text;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -101,6 +101,11 @@ public class Player : MonoBehaviour
         this.hp = Mathf.Clamp(this.hp - value, 0, hp_max);
         ui.SetHP(hp);
         p_anim.SetDamageAnimation();
+
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_GAMEOVER);
+        }
     }
 
     //範囲を超えないように体力を増減させる。
@@ -194,7 +199,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
         {
-            Debug.Log("Game Over...");
+            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_GAMEOVER);
         }
     }
 
@@ -206,7 +211,7 @@ public class Player : MonoBehaviour
         // クリア範囲に入ったらゲームクリア
         if (obj.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
         {
-            Debug.Log("Game Clear!!!");
+            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_CLEAR);
         }
 
         // アイテムと接触したら効果処理を呼び出す。
