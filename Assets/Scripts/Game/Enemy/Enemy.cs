@@ -151,7 +151,7 @@ public class Enemy : MonoBehaviour
         return attackcooltime * 60;
     }
 
-    private void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Magic")
         {
