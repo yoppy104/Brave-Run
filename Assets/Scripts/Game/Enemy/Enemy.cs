@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         get { return this.hp_max; }
     }
 
-    public int Hp { get; set; }
+    public int Hp;
 
     public int ATK
     {
@@ -67,6 +67,8 @@ public class Enemy : MonoBehaviour
         E_anim = this.GetComponent<Animator>();
 
         Hp = hp_max;
+        modeframe = 0;
+        enemymode = 0;
 
     }
     
@@ -149,7 +151,7 @@ public class Enemy : MonoBehaviour
         return attackcooltime * 60;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Magic")
         {
