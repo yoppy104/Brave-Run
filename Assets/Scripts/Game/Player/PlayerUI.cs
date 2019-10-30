@@ -21,6 +21,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image special_bullet_image;    //所持特殊弾の表示
     [SerializeField] private Sprite[] special_bullet_icons; //特殊弾のアイコンをそろえた配列
 
+    [SerializeField] private Transform position_goal;       //ゴール地点オブジェクト
+
     private StringBuilder distance_text_buffer;
 
     private StringBuilder score_text_buffer;
@@ -97,5 +99,18 @@ public class PlayerUI : MonoBehaviour
         distance_text_buffer = new StringBuilder();
         distance_text_buffer.Append("100");
         distance_text_buffer.Append("m");
+    }
+
+    private float CalcDistance()
+    {
+        Vector3 pos = transform.position;
+        Vector3 goal = position_goal.position;
+
+        return Mathf.Abs(Vector3.Distance(pos, goal));
+    }
+
+    private void Update()
+    {
+        SetDistance((int)CalcDistance());
     }
 }

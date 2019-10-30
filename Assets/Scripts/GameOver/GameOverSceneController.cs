@@ -8,7 +8,7 @@ public class GameOverSceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundManager.Instance.StartBGM(SoundManager.BGMType.GAMEOVER);
     }
 
     // Update is called once per frame

@@ -50,7 +50,7 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: -2, y: -2, z: 0}
+  - first: {x: -2, y: -1, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 0
@@ -203,7 +203,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6452320463783506428}
   m_Enabled: 1
-  m_CellSize: {x: 0.625, y: 0.6328125, z: 0}
+  m_CellSize: {x: 0.6328125, y: 0.6328125, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0

@@ -32,7 +32,7 @@ public class ClearSceneController : MonoBehaviour
             is_running[i] = false;
         }
 
-        
+        SoundManager.Instance.StartBGM(SoundManager.BGMType.CLEAR);
     }
 
     // Update is called once per frame
