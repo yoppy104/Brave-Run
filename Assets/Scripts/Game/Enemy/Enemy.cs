@@ -135,6 +135,7 @@ public class Enemy : MonoBehaviour
         E_anim.SetTrigger("isDamage");
         if (Hp <= 0)
         {
+            ScoreManager.Instance.addScore(300);
             this.gameObject.SetActive(false);
         }
     }
