@@ -22,7 +22,7 @@ public class TitleSceneScript : MonoBehaviour
     {
         SoundManager.Instance.StartBGM(SoundManager.BGMType.FANFALE);
         scenechange = false;
-        timecount = 1;
+        timecount = 0.5f;
         velo = new Vector2(0, 0);
 
         title = GameObject.Find("TitleText");
