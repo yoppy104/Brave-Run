@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 
     private static ScoreManager instance = null;
 
-    public static ScoreManager Instance{ get { return Instance; } }
+    public static ScoreManager Instance{ get { return instance; } }
 
     private int score;
 
@@ -22,13 +22,13 @@ public class ScoreManager : MonoBehaviour
 
         if (ui == null)
         {
-            GameObject.Find(ConstNumbers.GAMEOBJECT_NAME_PLAYER).GetComponent<PlayerUI>();
+            ui = GameObject.Find(ConstNumbers.GAMEOBJECT_NAME_PLAYER).GetComponent<PlayerUI>();
         }
         ui.SetScore(score);
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {

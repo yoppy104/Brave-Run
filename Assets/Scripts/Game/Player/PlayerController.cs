@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         MagicBase script = player.MagicScript;
 
+        if (player.Mp <= 0) return;
+
         if (!script.gameObject.activeSelf)
         {
             if (transform.position.x > position.x)
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
                 script.gameObject.transform.position = transform.position - transform.right * 0.5f - transform.forward * 0.5f;
 
                 script.MoveStart(position);
+
+                player.PlusMp(-script.Cost);
             }
         }
     }

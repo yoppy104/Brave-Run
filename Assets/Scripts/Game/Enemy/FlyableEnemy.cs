@@ -63,6 +63,12 @@ public class FlyableEnemy : Enemy
             Debug.Log("ゆうしゃにこうげきしたよ by flyableenemy");
             Attack();
         }
+
+
+        if (CheckOverPlayer())
+        {
+            Move(6);
+        }
     }
 
     public void ChangeEnemyMode(int mode)

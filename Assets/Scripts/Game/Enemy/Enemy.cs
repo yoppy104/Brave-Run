@@ -45,6 +45,19 @@ public class Enemy : MonoBehaviour
     public int ATK
     {
         get { return this.attack; }
+        set { this.attack = value; }
+    }
+
+    public int Waittime
+    {
+        get { return this.waittime; }
+        set { this.waittime = value; }
+    }
+
+    public int Cooltime
+    {
+        get { return this.attackcooltime; }
+        set { this.attackcooltime = value; }
     }
 
     protected Animator E_anim;
@@ -81,7 +94,7 @@ public class Enemy : MonoBehaviour
                 E_rigidbody.velocity = new Vector2(1, 0);
                 break;
             case 1:
-                E_rigidbody.AddForce(new Vector2((P_transform.position.x - E_transform.position.x) *0.5f, (P_transform.position.y - E_transform.position.y) * 0.5f));
+                E_rigidbody.AddForce(new Vector2((P_transform.position.x - E_transform.position.x) * 0.5f, (P_transform.position.y - E_transform.position.y) * 0.5f));
                 E_rigidbody.velocity = new Vector2(Mathf.Clamp(E_rigidbody.velocity.x, -1, 1), Mathf.Clamp(E_rigidbody.velocity.y, -1, 1));
                 break;
             case 2:
@@ -99,7 +112,15 @@ public class Enemy : MonoBehaviour
                 E_rigidbody.AddForce(new Vector2((-20 - E_transform.position.x) * 0.3f, 0));
                 E_rigidbody.velocity = new Vector2(Mathf.Clamp(E_rigidbody.velocity.x, -1, 1), E_rigidbody.velocity.y);
                 break;
+            case 6:
+                E_rigidbody.velocity = Vector3.up * 2;
+                break;
         }
+    }
+
+    protected bool CheckOverPlayer()
+    {
+        return transform.position.x > P_transform.position.x;
     }
 
     public void Attack()
@@ -114,6 +135,7 @@ public class Enemy : MonoBehaviour
         E_anim.SetTrigger("isDamage");
         if (Hp <= 0)
         {
+            ScoreManager.Instance.addScore(300);
             this.gameObject.SetActive(false);
         }
     }
@@ -158,6 +180,15 @@ public class Enemy : MonoBehaviour
         {
             int Magic_attack=collision.gameObject.GetComponent<MagicBase>().Attack;
             Damage(Magic_attack);
+        }
+    }
+
+    //ゲームエリアから飛び出したら、非アクティブにする。
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }
