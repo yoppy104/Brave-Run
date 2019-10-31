@@ -121,8 +121,6 @@ public class PlayerController : MonoBehaviour
         {
             SpecialBeam(InputManager.BeamPoint());
         }
-
-        rb.velocity += Vector2.right * 0.5f;
     }
 
     //物理演算の処理

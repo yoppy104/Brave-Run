@@ -682,8 +682,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420034}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -769,39 +767,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b41d827ee0225946af4fef93bd6977d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &519420034
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &568688034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,31 +1200,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fly_enemy_prefab: {fileID: 1717947353833616844, guid: 35890306b8c968a43944149b41139fc0,
     type: 3}
---- !u!1 &1030972460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5729560581379935862, guid: a745a8b8562e16a41b75428682228372,
-    type: 3}
-  m_PrefabInstance: {fileID: 5184022108965367634}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1030972461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030972460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b41d827ee0225946af4fef93bd6977d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1062290383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 101352653, guid: a745a8b8562e16a41b75428682228372,
     type: 3}
   m_PrefabInstance: {fileID: 5184022108965367634}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030972460}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6dcc189737f30b4d902d50436a6adf1, type: 3}
@@ -1469,7 +1416,6 @@ GameObject:
   - component: {fileID: 1438807716}
   - component: {fileID: 1438807715}
   - component: {fileID: 1438807717}
-  - component: {fileID: 1438807718}
   m_Layer: 12
   m_Name: GameArea
   m_TagString: GameArea
@@ -1538,18 +1484,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1438807718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438807714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b41d827ee0225946af4fef93bd6977d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1460798311
 GameObject:
   m_ObjectHideFlags: 0

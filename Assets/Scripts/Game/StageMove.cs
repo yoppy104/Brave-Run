@@ -28,7 +28,7 @@ public class StageMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += move_direction * speed;
+        transform.position += move_direction * speed;
 
         count++;
 
