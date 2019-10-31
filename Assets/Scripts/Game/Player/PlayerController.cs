@@ -69,14 +69,15 @@ public class PlayerController : MonoBehaviour
 
     private void CheckTouchedGround()
     {
-        Vector3 check_center = transform.position - new Vector3(0f, 0.8f, 0f);
-        Vector3 check_radius = new Vector3(0.1f, 0.07f, 100f);
+        Vector3 check_center = transform.position - new Vector3(0f, 0.5f, 0f);
+        Vector3 check_radius = new Vector3(0.1f, 0.5f, 100f);
         Collider2D col = Physics2D.OverlapBox(check_center, check_radius, 0);
 
         if (col != null)
         {
             if (col.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
             {
+                Debug.Log(count_jamp);
                 count_jamp = 0;
                 p_anim.SetJumpAnimation(false);
             }
