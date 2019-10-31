@@ -12,7 +12,8 @@ public class ItemBase : MonoBehaviour
         CHARGE,     // MP回復
         SCATTERED,  // 拡散弾変更
         PENETRATION,// 貫通弾変更
-        ENHANCE     // 攻撃力上昇
+        ENHANCE,    // 攻撃力上昇
+        COIN        // スコア
     }
 
     // アイテムの種類

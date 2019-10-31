@@ -32,4 +32,7 @@ public class ConstNumbers
     public const string ANIMATION_FLAG_NAME_ATTACK = "isAttack";
     public const string ANIMATION_FLAG_NAME_DAMAGE = "isDamage";
 
+    //GameObjectの名前
+    public const string GAMEOBJECT_NAME_PLAYER = "Player";
+
 }

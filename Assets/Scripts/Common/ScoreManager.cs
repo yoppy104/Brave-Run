@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,6 +14,19 @@ public class ScoreManager : MonoBehaviour
 
     public int Score { get { return score; } set { score = value; } }
 
+    private PlayerUI ui = null;
+
+    public void addScore(int value)
+    {
+        score += value;
+
+        if (ui == null)
+        {
+            GameObject.Find(ConstNumbers.GAMEOBJECT_NAME_PLAYER).GetComponent<PlayerUI>();
+        }
+        ui.SetScore(score);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +36,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         DontDestroyOnLoad(this);

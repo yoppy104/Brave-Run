@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
 
     private void CheckTouchedGround()
     {
-        Vector3 check_center = transform.position - new Vector3(0f, 0.5f, 0f);
-        Vector3 check_radius = new Vector3(0.1f, 0.5f, 100f);
+        Vector3 check_center = transform.position;
+        Vector3 check_radius = new Vector3(0.5f, 4f, 100f);
         Collider2D col = Physics2D.OverlapBox(check_center, check_radius, 0);
 
         if (col != null)
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     // Update処理
     void Update()
     {
-        CheckTouchedGround();
+        //CheckTouchedGround();
 
         if (InputManager.JampInput())
         {
@@ -128,5 +128,14 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.AddForce(Vector3.down * ConstNumbers.GRAVITY_POWER, ForceMode2D.Force);
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
+        {
+            count_jamp = 0;
+            p_anim.SetJumpAnimation(false);
+        }
     }
 }

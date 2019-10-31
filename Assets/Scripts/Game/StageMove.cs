@@ -9,6 +9,8 @@ public class StageMove : MonoBehaviour
 
     private Vector3 move_direction = new Vector3(-1f, 0f, 0f);
 
+    private int count = 0;
+
     public float Speed
     {
         get { return this.speed; }
@@ -25,5 +27,12 @@ public class StageMove : MonoBehaviour
     void Update()
     {
         transform.position += move_direction * speed;
+
+        count++;
+
+        if (count % 500 == 0)
+        {
+            speed += 0.08f;
+        }
     }
 }
