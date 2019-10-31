@@ -1164,6 +1164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 864542851}
+  - component: {fileID: 864542852}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -1185,6 +1186,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864542852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864542850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dea20bb01636934fb5542cae8d4869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fly_enemy_prefab: {fileID: 1717947353833616844, guid: 35890306b8c968a43944149b41139fc0,
+    type: 3}
 --- !u!114 &1062290383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 101352653, guid: a745a8b8562e16a41b75428682228372,
