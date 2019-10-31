@@ -31,7 +31,7 @@ public class CameraControll : MonoBehaviour
         }
         else if (velo.y >= 0 && !isGoal)
         {
-            cameratransform.position = new Vector3(-7.46f, 0,-10);
+            //cameratransform.position = new Vector3(-7.46f, 0,-10);
         }
 
         if (isGoal)
