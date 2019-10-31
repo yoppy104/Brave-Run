@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         MagicBase script = player.MagicScript;
 
+        if (player.Mp <= 0) return;
+
         if (!script.gameObject.activeSelf)
         {
             if (transform.position.x > position.x)

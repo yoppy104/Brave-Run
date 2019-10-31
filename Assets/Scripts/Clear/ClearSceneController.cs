@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// クリアシーンを全体管理する
@@ -10,6 +11,8 @@ public class ClearSceneController : MonoBehaviour
 
     // 花火のパーティクルオブジェクト
     [SerializeField] private GameObject fire_work_particle;
+
+    [SerializeField] private Text score_text;
 
     // 花火のオブジェクト配列
     private GameObject[] fire_work_objects;
@@ -33,6 +36,10 @@ public class ClearSceneController : MonoBehaviour
         }
 
         SoundManager.Instance.StartBGM(SoundManager.BGMType.CLEAR);
+
+        int result_score = ScoreManager.Instance.Score;
+        result_score += 10000;
+        score_text.text = result_score.ToString();
     }
 
     // Update is called once per frame
