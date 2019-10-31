@@ -7,6 +7,7 @@ public class CameraControll : MonoBehaviour
 
     private float timecount;
     private Vector3 velo;
+    private bool isGoal;
 
     private Transform cameratransform;
 
@@ -16,19 +17,35 @@ public class CameraControll : MonoBehaviour
         cameratransform = this.GetComponent<Transform>();
         cameratransform.position = new Vector3(-7.46f, 45.8f,-10);
         velo = new Vector3(0, -1.5f);
+
+        isGoal = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (velo.y < 0)
+        if (velo.y < 0 && !isGoal)
         {
             cameratransform.Translate(velo);
             velo.y += 0.025f;
         }
-        else if (velo.y >= 0)
+        else if (velo.y >= 0 && !isGoal)
         {
             cameratransform.position = new Vector3(-7.46f, 0,-10);
         }
+
+        if (isGoal)
+        {
+            cameratransform.Translate(velo);
+            velo.y += 0.025f;
+        }
+
+
+    }
+
+    public void Goal()
+    {
+        isGoal = true;
+        Debug.Log("AAAA");
     }
 }
