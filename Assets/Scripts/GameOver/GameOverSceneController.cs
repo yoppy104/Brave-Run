@@ -21,7 +21,8 @@ public class GameOverSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        InputManager.KillGame();
     }
 
     public void OnClickTitleButton()

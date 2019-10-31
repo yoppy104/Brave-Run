@@ -34,7 +34,9 @@ public class StageMove : MonoBehaviour
 
         if (count % 500 == 0)
         {
-            speed += 0.08f;
+            speed += 0.05f;
         }
+
+        InputManager.KillGame();
     }
 }

@@ -56,6 +56,8 @@ public class TitleSceneScript : MonoBehaviour
                 SceneManager.LoadScene(ConstNumbers.SCENE_NAME_GAME);
             }
         }
+
+        InputManager.KillGame();
     }
 
     public void OnClickGameStart()

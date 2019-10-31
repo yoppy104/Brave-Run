@@ -53,8 +53,9 @@ public class ClearSceneController : MonoBehaviour
             {
                 StartCoroutine(DispFireWork(i));
             }
-        }   
+        }
 
+        InputManager.KillGame();
     }
 
     // ランダムな時間待機してから、花火を再表示する。

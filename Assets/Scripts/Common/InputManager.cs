@@ -30,4 +30,17 @@ public class InputManager
         pos.z = 0;
         return pos;
     }
+
+
+    public static void KillGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #elif UNITY_STANDALONE
+                UnityEngine.Application.Quit();
+            #endif
+        }
+    }
 }
