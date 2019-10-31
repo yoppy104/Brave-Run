@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitleSceneScript : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class TitleSceneScript : MonoBehaviour
     RectTransform titletransform;
     RectTransform buttontransform1;
     RectTransform buttontransform2;
+
+    //タイトルのメインとなるキャンバス
+    [SerializeField] private GameObject main_canvas;
+
+    //ゲームの説明を記述するキャンバス
+    [SerializeField] private GameObject option_canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +60,18 @@ public class TitleSceneScript : MonoBehaviour
 
     public void OnClickGameStart()
     {
-        Debug.Log("test");
         scenechange = true;
+    }
+
+    public void OnClickOptionButton()
+    {
+        main_canvas.SetActive(false);
+        option_canvas.SetActive(true);
+    }
+
+    public void OnClickBackTitleButton()
+    {
+        main_canvas.SetActive(true);
+        option_canvas.SetActive(false);
     }
 }
