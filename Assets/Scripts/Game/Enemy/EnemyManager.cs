@@ -92,6 +92,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     private int wait_count = 0;
+    private int levelup_count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +108,12 @@ public class EnemyManager : MonoBehaviour
             if (CountActiveEnemy() < 5)
             {
                 StartCoroutine(RespawnEnemy());
+            }
+
+            levelup_count++;
+            if (levelup_count % 600 == 0)
+            {
+                LevelUpEnemy();
             }
         }
         else { wait_count++; }
@@ -142,5 +149,17 @@ public class EnemyManager : MonoBehaviour
             }
         }
         return count;
+    }
+
+    private void LevelUpEnemy()
+    {
+        foreach(GameObject obj in enemies)
+        {
+            Enemy script = obj.GetComponent<Enemy>();
+            script.Hp += 5;
+            script.ATK += 2;
+            script.Cooltime = Mathf.Clamp(script.Cooltime - 1, 1, 100);
+            script.Waittime = Mathf.Clamp(script.Waittime - 1, 1, 100);
+        }
     }
 }

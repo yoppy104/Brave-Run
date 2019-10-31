@@ -133,17 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8554c029842a84a8950de68e4f55e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp_max: 10
-  attack: 1
-  waittime: 2
-  attackcooltime: 5
-  enemymode: 0
-  E_anim: {fileID: 0}
-  player: {fileID: 0}
-  E_rigidbody: {fileID: 0}
-  p: {fileID: 0}
-  P_transform: {fileID: 0}
-  E_transform: {fileID: 0}
+  hp_max: 20
+  attack: 3
+  waittime: 3
+  attackcooltime: 4
+  Hp: 20
 --- !u!95 &2878060238670743006
 Animator:
   serializedVersion: 3

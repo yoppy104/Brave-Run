@@ -45,6 +45,19 @@ public class Enemy : MonoBehaviour
     public int ATK
     {
         get { return this.attack; }
+        set { this.attack = value; }
+    }
+
+    public int Waittime
+    {
+        get { return this.waittime; }
+        set { this.waittime = value; }
+    }
+
+    public int Cooltime
+    {
+        get { return this.attackcooltime; }
+        set { this.attackcooltime = value; }
     }
 
     protected Animator E_anim;
