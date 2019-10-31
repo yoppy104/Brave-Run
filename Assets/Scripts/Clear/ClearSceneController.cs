@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ClearSceneController : MonoBehaviour
 {
 
+
     // 花火のパーティクルオブジェクト
     [SerializeField] private GameObject fire_work_particle;
 
@@ -37,6 +38,7 @@ public class ClearSceneController : MonoBehaviour
 
         SoundManager.Instance.StartBGM(SoundManager.BGMType.CLEAR);
 
+
         int result_score = ScoreManager.Instance.Score;
         result_score += 10000;
         score_text.text = result_score.ToString();
@@ -52,6 +54,7 @@ public class ClearSceneController : MonoBehaviour
                 StartCoroutine(DispFireWork(i));
             }
         }   
+
     }
 
     // ランダムな時間待機してから、花火を再表示する。

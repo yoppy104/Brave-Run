@@ -44,6 +44,11 @@ public class Player : MonoBehaviour
 
     private PlayerAnimator p_anim;
 
+    protected int scenechange;
+    protected float timecount;
+    protected GameObject cam;
+    protected CameraControll camSprite;
+
     public int HpMax
     {
         get { return this.hp_max; }
@@ -177,6 +182,11 @@ public class Player : MonoBehaviour
         ui.SetDistance(distance);
 
         p_anim = gameObject.GetComponent<PlayerAnimator>();
+
+        scenechange = 0;
+        timecount = 2f;
+        cam = GameObject.Find("Main Camera");
+        camSprite = cam.GetComponent<CameraControll>();
     }
 
     // 腕を動かす処理
@@ -193,13 +203,26 @@ public class Player : MonoBehaviour
     private void Update()
     {
         MoveArm();
+        if (scenechange==1)
+        {
+            timecount -= Time.deltaTime;
+            camSprite.Goal();
+            if (timecount < 0)
+            {
+                SceneManager.LoadScene(ConstNumbers.SCENE_NAME_CLEAR);
+            }
+        }
+        if (scenechange == 2)
+        {
+            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_GAMEOVER);
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA))
         {
-            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_GAMEOVER);
+            scenechange = 2;
         }
     }
 
@@ -211,7 +234,7 @@ public class Player : MonoBehaviour
         // クリア範囲に入ったらゲームクリア
         if (obj.CompareTag(ConstNumbers.TAG_NAME_GOAL_AREA))
         {
-            SceneManager.LoadScene(ConstNumbers.SCENE_NAME_CLEAR);
+            scenechange = 1;
         }
 
         // アイテムと接触したら効果処理を呼び出す。
