@@ -21,6 +21,8 @@ public class StageMove : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.StartBGM(SoundManager.BGMType.GAME);
+
+        ScoreManager.Instance.Score = 0;
     }
 
     // Update is called once per frame
