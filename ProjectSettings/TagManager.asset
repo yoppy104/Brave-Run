@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Stage
+  - Magic
+  - GameArea
+  - GoalArea
+  - Item
+  - Enemy
+  - UntachablePlayer
   layers:
   - Default
   - TransparentFX
@@ -13,14 +20,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Magic
+  - Stage
+  - System
+  - Item
+  - background
+  - UntachablePlayer
   - 
   - 
   - 
@@ -38,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 4048398217
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Arm
+    uniqueID: 1037888819
     locked: 0
