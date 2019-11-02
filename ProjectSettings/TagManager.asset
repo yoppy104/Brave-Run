@@ -9,6 +9,8 @@ TagManager:
   - GameArea
   - GoalArea
   - Item
+  - Enemy
+  - UntachablePlayer
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - System
   - Item
   - background
-  - 
+  - UntachablePlayer
   - 
   - 
   - 

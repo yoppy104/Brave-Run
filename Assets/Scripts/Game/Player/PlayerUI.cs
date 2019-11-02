@@ -30,6 +30,8 @@ public class PlayerUI : MonoBehaviour
     private const string FILL_TEXT = "00000";
     private const int NUM_FILL = 5;
 
+    private int pre_scene_distance_data = 1000000;
+
     //MagicTypeに対応した配列のインデックスを返す。
     private int CastMagicTypeToIndex(MagicBase.MagicType type)
     {
@@ -44,6 +46,12 @@ public class PlayerUI : MonoBehaviour
             default:
                 return 0;
         }
+    }
+
+
+    public void SetUIData(int hp_max, int mp_max) {
+        hp_bar.maxValue = hp_max;
+        mp_bar.maxValue = mp_max;
     }
 
     //HPゲージを設定する。
@@ -84,6 +92,9 @@ public class PlayerUI : MonoBehaviour
     //残距離を表示する。
     public void SetDistance(int value)
     {
+        if (pre_scene_distance_data < value) { return; }
+
+        pre_scene_distance_data = value;
         int index = (distance_text_buffer.ToString()).Length - 1;
         string replace_text = distance_text_buffer.ToString().Substring(0, index);
         distance_text_buffer = distance_text_buffer.Replace(replace_text, value.ToString());

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2878060238670743006}
   m_Layer: 9
   m_Name: flyenemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,8 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp_max: 20
   attack: 3
-  waittime: 3
-  attackcooltime: 4
+  waittime: 2
+  attackcooltime: 3
   Hp: 20
 --- !u!95 &2878060238670743006
 Animator:

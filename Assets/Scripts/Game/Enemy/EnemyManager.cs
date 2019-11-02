@@ -15,7 +15,8 @@ public class EnemyManager : MonoBehaviour
     //敵リスト
     private List<GameObject> enemies;
 
-    
+    private float create_point_x = -10f;
+
 
     //敵の再生成処理
     private void Respawn(EnemyType type)
@@ -52,13 +53,13 @@ public class EnemyManager : MonoBehaviour
         if (respawn_obj != null)
         {
             respawn_obj.SetActive(true);
-            respawn_obj.transform.position = Camera.main.transform.position + new Vector3(-10f, y_pos, 10f);
+            respawn_obj.transform.position = Camera.main.transform.position + new Vector3(create_point_x, y_pos, 10f);
         }
         //存在しないなら、追加で生成
         else
         {
             AddEnemy(type);
-            enemies[enemies.Count - 1].transform.position = Camera.main.transform.position + new Vector3(-10f, y_pos, 10f);
+            enemies[enemies.Count - 1].transform.position = Camera.main.transform.position + new Vector3(create_point_x, y_pos, 10f);
         }
 
     }
@@ -161,5 +162,6 @@ public class EnemyManager : MonoBehaviour
             script.Cooltime = Mathf.Clamp(script.Cooltime - 1, 1, 100);
             script.Waittime = Mathf.Clamp(script.Waittime - 1, 1, 100);
         }
+        create_point_x += 2;
     }
 }

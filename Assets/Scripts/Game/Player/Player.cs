@@ -177,9 +177,11 @@ public class Player : MonoBehaviour
         ui.SetScore(score);
 
         //distanceとUIの初期化
-        distance = 0;
+        distance = 100000;
 
         ui.SetDistance(distance);
+
+        ui.SetUIData(hp_max, mp_max);
 
         p_anim = gameObject.GetComponent<PlayerAnimator>();
 
@@ -192,12 +194,16 @@ public class Player : MonoBehaviour
     // 腕を動かす処理
     private void MoveArm()
     {
-        Vector3 from = arm.transform.position + arm.transform.forward;
-        Vector3 to = InputManager.BeamPoint() - arm.transform.position;
+        Vector3 pos_mouse = InputManager.BeamPoint();
+        if (pos_mouse.x < transform.position.x)
+        {
+            Vector3 from = arm.transform.position + arm.transform.forward;
+            Vector3 to = pos_mouse - arm.transform.position;
 
-        float angle = Vector3.SignedAngle(from, to, Vector3.forward);
+            float angle = Vector3.SignedAngle(from, to, Vector3.forward);
 
-        arm.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+            arm.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
 
     private void Update()

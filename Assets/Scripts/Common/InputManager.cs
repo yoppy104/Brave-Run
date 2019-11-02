@@ -6,7 +6,7 @@
 public class InputManager
 {
     //ジャンプのキー操作
-    public static bool JampInput()
+    public static bool JumpInput()
     {
         return Input.GetKeyDown(KeyCode.Space);
     }

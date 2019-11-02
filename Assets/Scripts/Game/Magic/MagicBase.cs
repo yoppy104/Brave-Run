@@ -96,7 +96,7 @@ public class MagicBase : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!(collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_PLAYER) || collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_GAME_AREA)))
+        if (collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_ENEMY) || collision.gameObject.CompareTag(ConstNumbers.TAG_NAME_STAGE))
         {
             Hit();
         }
